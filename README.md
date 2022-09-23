@@ -1,52 +1,42 @@
-## Hackintosh-Prime-H410M-A-iGPU
+# Hackintosh-Asus-Prime-H410M-A-iGPU
 
 鉴于现阶段十代设备在二手市场比较划算，遂在海鲜市场淘了一套，放客厅看看奈飞~~
 
-## 老规矩先上图
-<img src="PIC/H410M-1.png" width="1000" />
-<img src="PIC/H410M-2.png" width="1000"/>
-<img src="PIC/H410M-3.png" width="1000" />
-<img src="PIC/H410M-4.png" width="400" />
 
-## 硬件配置
+# 硬件配置
 
 | 项目 | 型号 | 说明 |
 | :------:| :------| :------|
-|  机 箱  | 先马趣造黑色款 | 支持MATX和ITX，体积相对小巧，性价比高 |
-|  电 源  | 安钛克 VP450W | 海鲜市场二手淘来 |
 |  主 板  | 华硕 Prime H410M-A | M-ATX主板，不带WIFI，|
 |  | Realtek RTL8111H |千兆网卡，主板自带 |
 |  | Realtek ALC887 | 主板自带7.1声卡 |
 | CPU | Intel i3-10100 | 二手散片性价比相当OK |
 |核显|Intel UHD 630 | 核显驱动 |
 |内存|光威 天策 DDR4 3200 16GB (8G×2)| 前阵子内存低价囤货，性价比可以|
-|显示器|Redmi 27 NF |1080P 75Hz，HDMI线连接，办公首选|
 | NVME | 影驰 擎 512G| 二手矿盘，价格便宜 |
 
 
 
-## 软件配置
+# 软件配置
 
 * 引导: OpenCore 0.8.0 开发版
 * 黑果系统: macOS Big Sur 11.6.5 (Macmini8,1)
 
 
-## 工作情况
+# 工作情况
 | 项目 | 情况 | 说明 |
 | :------| :------:| :------|
 | 声卡 Realtek ALC887 |✅| AppleALC完美驱动 |
-| 核显 UHD630 |✅| 完美驱动，支持 HDMI 输出 |
+| 核显 UHD630 |✅| 完美驱动， HDMI 输出 |
 | 有限网卡 Realtek RTL8111H |✅| OC中配置好，即完美可用。 |
 | USB |✅| macOS Big Sur 11.6.5 必须定制，定制后完美。 |
 | 电源管理 |✅| 原生电源管理 |
 
 
 
-## 具体详情
+# 具体详情
 
-### 显卡
-
-#### 核显 Intel UHD 630
+## 核显 Intel UHD 630
 
 配置参数(缓冲帧):
 
@@ -59,7 +49,7 @@
 
 
 
-### 声卡
+## 声卡
 
 配置参数:
 
@@ -76,7 +66,7 @@ DeviceProperties:
 </dict>
 ```
 
-### 有线网卡 Realtek RTL8111H 
+## 有线网卡 Realtek RTL8111H 
 
 OpenCore 内核参数中添加驱动：RealtekRTL8111.kext
 
@@ -84,7 +74,7 @@ OpenCore 内核参数中添加驱动：RealtekRTL8111.kext
 
 
 
-### USB定制
+## USB定制
 
 机箱是先马趣造，有2个USB 3.0 前置，没有前置的USB-TYPE-C。
 我是在Windows下定制的，前、后都定制好的情况下，数量还有的多，所以整体不用取舍。
@@ -97,7 +87,7 @@ OpenCore 内核参数中添加驱动：RealtekRTL8111.kext
 
 
 
-### 华硕主板开机一直需要 F1 的问题 F1 Boot Error
+## 华硕主板开机一直需要 F1 的问题 F1 Boot Error
 
 启用 `Kernel` 的 Quirks : ✅ DisableRtcChecksum
 
@@ -105,7 +95,7 @@ OpenCore 内核参数中添加驱动：RealtekRTL8111.kext
 
 
 
-### BIOS 关闭
+## BIOS 关闭
 
 * Fast Boot 快速启动
 * VT-d
@@ -113,7 +103,7 @@ OpenCore 内核参数中添加驱动：RealtekRTL8111.kext
 * Intel SGX
 
 
-### BIOS 开启
+## BIOS 开启
 
 * VT-x 
 * Above 4G decoding
@@ -121,9 +111,9 @@ OpenCore 内核参数中添加驱动：RealtekRTL8111.kext
 * OS type: Windows UEFI Mode (或者清除所有 Secure Boot Keys 然后选 `Other` )
 * DVMT Pre-Allocated(iGPU Memory): 64MB
 
-### EFI
+# EFI
 
-#### SSDTs
+## SSDTs
 
 可以从这里找 [Dortania's ACPI Guide](https://dortania.github.io/Getting-Started-With-ACPI/),直接用就好了
 
